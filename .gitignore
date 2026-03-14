@@ -1,3 +1,10 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+.Python
+
 # pixi environments
 .pixi/*
 !.pixi/config.toml
