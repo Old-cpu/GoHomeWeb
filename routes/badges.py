@@ -60,3 +60,28 @@ def api_list():
         })
 
     return jsonify(result)
+
+
+@badges_bp.route('/api/badges/definitions')
+@login_required
+def api_definitions():
+    """API: 获取所有勋章定义"""
+    all_definitions = BadgeStorage.get_all_definitions()
+
+    # 按分类组织
+    categories = {
+        'time': {'name': '时间里程碑', 'badges': []},
+        'streak': {'name': '签到连续', 'badges': []},
+        'special': {'name': '特殊成就', 'badges': []},
+    }
+
+    for badge_id, definition in all_definitions.items():
+        category = definition.get('category', 'special')
+        categories[category]['badges'].append({
+            'id': badge_id,
+            'name': definition['name'],
+            'description': definition['description'],
+            'category': category
+        })
+
+    return jsonify(categories)

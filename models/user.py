@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 from models.storage import UserStorage, CheckinStorage
 
 
@@ -125,34 +125,3 @@ class User:
             'nickname': self.nickname,
             'tone_style': self.tone_style
         }
-
-
-# 修复：需要导入 timedelta
-from datetime import timedelta
-
-# 重新定义 _calculate_current_streak 方法
-def _calculate_current_streak_fixed(self, dates):
-    """计算当前连续签到天数"""
-    if not dates:
-        return 0
-
-    today = datetime.now().date()
-    expected_date = today
-
-    streak = 0
-    for date_str in sorted(dates, reverse=True):
-        try:
-            date = datetime.strptime(date_str, '%Y-%m-%d').date()
-            if date == expected_date:
-                streak += 1
-                expected_date = date - timedelta(days=1)
-            elif date == expected_date - timedelta(days=1):
-                expected_date = date - timedelta(days=1)
-                streak += 1
-            else:
-                break
-        except:
-            continue
-    return streak
-
-User._calculate_current_streak = _calculate_current_streak_fixed
