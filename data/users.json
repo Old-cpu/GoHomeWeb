@@ -1,11 +1,14 @@
 {
   "1": {
     "username": "demo",
-    "password_hash": "scrypt:32768:8:1$9R7yFboqgLvdOnMP$2a7eb87afab269e2ab0d1a54359cde11eb986a0112694ca0fad4ad9b8b93813c859007d1ab4daa129dfd1d526d883c7d169b64ecc03223aa84962deb5102061c",
+    "password_hash": "scrypt:32768:8:1$ELPPC94SCXJax3s3$90aaf77a9920cfa80f22395bcfc48c18de88f39ec87b2940dcca1c71868644fce880360429272075a4d0a730207f354a22dd5c94d798d11e7d4c523307e0fc03",
     "hometown": "湖南长沙",
     "current_city": "北京",
     "leave_home_date": "2025-10-06",
     "created_at": "2026-03-13T23:53:16.504415",
-    "id": 1
+    "id": 1,
+    "family_role": "妈妈",
+    "nickname": "娃",
+    "tone_style": "唠叨型"
   }
 }
